@@ -1,0 +1,91 @@
+
+<h1>Nuevo Héroe</h1>
+<hr>
+<div class="container mt-5 mb-5">
+  <form #heroForm="ngForm" (ngSubmit)="addHero(heroForm)">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="text-center mb-2">Adjunta una imagen</div>
+      <div class="ui cards card-columns centered ">
+        <label class="card btn"  for="validationServer05">
+          <div class="image">
+            <img [src]="src" >
+          </div>
+        </label>
+      </div>
+
+      <input
+        type="file"
+        accept="image/*"
+        class="custom-file-input"
+        id="validationServer05"
+        aria-describedby="inputGroupFileAddon01"
+        #img="ngModel"
+        name="img"
+        (imageSelected)="selected($event)"
+        [(ngModel)]="heroService.selectedHero.img"
+        [imageToDataUrl]="options"
+        >
+    </div>
+    <div class="col-md-6">
+      <!-- <form> -->
+        <div class="form-row">
+          <div class="col-md-12 mb-3">
+            <label for="validationServer01">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Nombre del héroe"
+              id="validationServer01"
+              required
+              name="nombre"
+              #nombre="ngModel"
+              [(ngModel)]="heroService.selectedHero.nombre">
+          </div>
+          <div class="col-md-12 mb-3">
+            <label for="validationServer02">Fecha de aparición</label>
+            <input
+              type="date"
+              class="form-control"
+              id="validationServer02"
+              placeholder="Selecione una fecha"
+              name="aparicion"
+              #aparicion = "ngModel"
+              [(ngModel)]="heroService.selectedHero.aparicion">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-12 mb-3">
+            <label for="validationServer04">Casa</label>
+            <select
+              name="casa"
+              #casa='ngModel'
+              [(ngModel)]="heroService.selectedHero.casa"
+              class="custom-select"
+              id="validationServer04"
+              required>
+              <option selected disabled value="-1" >Choose one...</option>
+              <option value="Marvel" >Marvel</option>
+              <option value="DC">DC</option>
+            </select>
+          </div>
+          <div class="col-md-12 mb-3">
+              <label for="validationServer06">Ingrese la biografía</label>
+              <textarea
+                style="resize: none"
+                rows="5"
+                class="form-control"
+                id="validationServer06"
+                name="bio"
+                placeholder="Biografía"
+                #bio="ngModel"
+                [(ngModel)]="heroService.selectedHero.bio">
+                </textarea>
+          </div>
+        </div>
+        <button class="btn btn-outline-primary float-left" type="reset" (click)="images = []; src = 'assets/img/not-found-image.jpg'" >Clear</button>
+        <button class="btn btn-outline-success float-right" type="submit">Crear Héroe</button>
+      </div>
+    </div>
+  </form>
+</div>
