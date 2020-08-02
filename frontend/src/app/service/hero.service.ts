@@ -28,6 +28,10 @@ export class HeroService {
     return this.http.get(this.URL_API);
   }
 
+  getHero( id: string ){
+    return this.http.get(this.URL_API + '/show/' + id ) 
+  }
+
   createHero(hero: any){
     return this.http.post(this.URL_API + '/create', hero);
   }

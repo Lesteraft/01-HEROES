@@ -18,6 +18,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
 import { AboutComponent } from './components/about/about.component';
 import { AddHeroComponent } from './components/add-hero/add-hero.component';
+import { HeroComponent } from './components/hero/hero.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { AddHeroComponent } from './components/add-hero/add-hero.component';
     HomeComponent,
     HeroesComponent,
     AboutComponent,
-    AddHeroComponent
+    AddHeroComponent,
+    HeroComponent
   ],
   imports: [
     ImageCropperModule,
